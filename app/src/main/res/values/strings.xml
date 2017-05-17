@@ -2,10 +2,11 @@
     <string name="app_name">Iowa Votes</string>
     <string name="register_button">How to Register</string>
     <string name="vote_button">How to Vote</string>
-    <string name="check_button">Check Your Registration</string>
+    <string name="check_button">Find Your Legislators</string>
     <string name="polling_button">Find Your Polling Place</string>
-    <string name="register_label">Voter Registration Information</string>
+    <string name="register_label">Registration Information</string>
     <string name="vote_label">How to Vote</string>
-    <string name="check_label">Check Your Registration</string>
-    <string name="polling_label">Find Your Polling Place</string>
+    <string name="check_label">\n\nFind Your Legislators</string>
+    <string name="polling_label">\nFind Your Polling Place</string>
+    <string name="results_label">2016 Election Results</string>
 </resources>

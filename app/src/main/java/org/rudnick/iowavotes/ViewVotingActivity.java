@@ -1,31 +1,39 @@
 package org.rudnick.iowavotes;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 public class ViewVotingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_voting);
 
-        String[] votingArray = new String[10];
-        votingArray[0] = "By Mail";
-        votingArray[1] = "1. Get your absentee ballot application";
-        votingArray[2] = "Download and print the absentee ballot application";
-        votingArray[3] = "[Get the form](https://sos.iowa.gov/elections/pdf/absenteeballotapp.pdf)";
-        votingArray[4] = "2. Fill out the form";
-        votingArray[5] = "";
-        votingArray[6] = "3. Submit the form";
-        votingArray[7] = "Mail your application to your [County Auditor’s office](https://sos.iowa.gov/elections/auditors/auditorslist.html) so it’s received by **5 PM on Nov 4**";
-        votingArray[8] = "4. Vote";
-        votingArray[9] = "- Once you receive your ballot, follow the instructions to fill out the ballot and return envelope\n - Mail your ballot by **Nov 7** to your [County Auditor’s office](https://sos.iowa.gov/elections/auditors/auditorslist.html)\n - Check the status of your ballot at [sos.iowa.gov](https://sos.iowa.gov/elections/absenteeballotstatus/search.aspx)";
+        // Set the content of the activity to use the activity_view_info.xml layout file
+        setContentView(R.layout.activity_view_info);
 
-        ArrayAdapter<String> votingAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, votingArray);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(votingAdapter);
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        // Create an adapter that knows which fragment should be shown on each page
+        VotingAdapter adapter = new VotingAdapter(this, getSupportFragmentManager());
+
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
+
+        // Find the tab layout that shows the tabs
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        // Connect the tab layout with the view pager. This will
+        //   1. Update the tab layout when the view pager is swiped
+        //   2. Update the view pager when a tab is selected
+        //   3. Set the tab layout's tab names with the view pager's adapter's titles
+        //      by calling onPageTitle()
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_mail_outline_white_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_person_white_24dp);
     }
 }

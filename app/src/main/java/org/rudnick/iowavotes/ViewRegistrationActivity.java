@@ -1,45 +1,39 @@
 package org.rudnick.iowavotes;
 
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import java.util.ArrayList;
+import android.support.design.widget.TabLayout;
 
 public class ViewRegistrationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_registration);
 
-        String[] registrationArray = new String[17];
-        registrationArray[0] = "Online";
-        registrationArray[1] = "You'll need your Iowa driver’s license or non-operator’s ID and birthday to register online";
-        registrationArray[2] = "[Register online](https://sos.iowa.gov/elections/voterinformation/voterregistration.html)";
-        registrationArray[3] = "Online";
-        registrationArray[4] = "Online";
-        registrationArray[5] = "Online";
-        registrationArray[6] = "Online";
-        registrationArray[7] = "Online";
-        registrationArray[8] = "Online";
-        registrationArray[9] = "Online";
-        registrationArray[10] = "Online";
-        registrationArray[11] = "Online";
-        registrationArray[12] = "Online";
-        registrationArray[13] = "Online";
-        registrationArray[14] = "Online";
-        registrationArray[15] = "Online";
-        registrationArray[16] = "Online";
+        // Set the content of the activity to use the activity_view_info.xml layout file
+        setContentView(R.layout.activity_view_info);
 
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        ArrayAdapter<String> registrationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, registrationArray);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(registrationAdapter);
+        // Create an adapter that knows which fragment should be shown on each page
+        RegistrationAdapter adapter = new RegistrationAdapter(this, getSupportFragmentManager());
+
+        // Set the adapter onto the view pager
+        viewPager.setAdapter(adapter);
+
+        // Find the tab layout that shows the tabs
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        // Connect the tab layout with the view pager. This will
+        //   1. Update the tab layout when the view pager is swiped
+        //   2. Update the view pager when a tab is selected
+        //   3. Set the tab layout's tab names with the view pager's adapter's titles
+        //      by calling onPageTitle()
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_computer_white_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_mail_outline_white_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_person_white_24dp);
     }
-
 }
