@@ -30,4 +30,5 @@ App has five buttons on its home screen:
 Motivated by Google's Civic Information API, I decided to design an app that would help Iowa voters to get informed, get registered and vote. I taught myself Android and coded the app in a matter of months to complete my Computer Science capstone project and graduate early from Drake University.
 
 Voting and Registration information from [Google](https://developers.google.com/civic-information/).
+
 Material icons from [Google](https://material.io/icons/).
