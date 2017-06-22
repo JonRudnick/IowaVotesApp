@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //View Registration Information Button
-        Button viewRegistrationButton = (Button)findViewById(R.id.register);
+        Button viewRegistrationButton = (Button) findViewById(R.id.register);
         viewRegistrationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //View Voting Information Button
-        Button viewVotingButton = (Button)findViewById(R.id.vote);
+        Button viewVotingButton = (Button) findViewById(R.id.vote);
         viewVotingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Find Legislators Button
-        Button findLegislatorsButton = (Button)findViewById(R.id.officials);
+        Button findLegislatorsButton = (Button) findViewById(R.id.officials);
         findLegislatorsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Find Polling Location Button
-        Button findPollingButton = (Button)findViewById(R.id.polling);
+        Button findPollingButton = (Button) findViewById(R.id.polling);
         findPollingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
         // Find the view pager that will allow the user to swipe between fragments
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
         ElectionAdapter adapter = new ElectionAdapter(this, getSupportFragmentManager());
@@ -82,10 +82,34 @@ public class MainActivity extends AppCompatActivity {
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
 
+        // Add Tab Selector Dots
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(viewPager, true);
-    }
 
+        //Left & Right Navigation
+        ImageView leftNav = (ImageView) findViewById(R.id.left_nav);
+        ImageView rightNav = (ImageView) findViewById(R.id.right_nav);
+        leftNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int tab = viewPager.getCurrentItem();
+                if (tab > 0) {
+                    tab--;
+                    viewPager.setCurrentItem(tab);
+                } else if (tab == 0) {
+                    viewPager.setCurrentItem(tab);
+                }
+            }
+        });
+        rightNav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int tab = viewPager.getCurrentItem();
+                tab++;
+                viewPager.setCurrentItem(tab);
+            }
+        });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
