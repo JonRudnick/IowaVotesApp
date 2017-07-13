@@ -1,62 +1,61 @@
 package org.rudnick.iowavotes;
 
-import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.app.Activity;
+import android.text.method.LinkMovementMethod;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
+import java.util.ArrayList;
 
 /**
- * {@link ElectionAdapter} is a {@link FragmentPagerAdapter} that can provide the layout for
- * each list item based on a data source which is a list of {@link Step} objects.
+ * Created by Jon on 1/20/2017.
  */
-public class ElectionAdapter extends FragmentPagerAdapter {
 
-    /** Context of the app */
-    private Context mContext;
+public class ElectionAdapter extends ArrayAdapter<Election> {
 
-    /**
-     * Create a new {@link ElectionAdapter} object.
-     *
-     * @param context is the context of the app
-     * @param fm is the fragment manager that will keep each fragment's state in the adapter
-     *           across swipes.
-     */
-    public ElectionAdapter(Context context, FragmentManager fm) {
-        super(fm);
-        mContext = context;
+    public ElectionAdapter(Activity context, ArrayList<Election> elections) {
+        // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
+        // the second argument is used when the ArrayAdapter is populating a single TextView.
+        // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
+        // going to use this second argument, so it can be any value. Here, we used 0.
+        super(context, 0, elections);
     }
 
-    /**
-     * Return the {@link Fragment} that should be displayed for the given page number.
-     */
     @Override
-    public Fragment getItem(int position) {
-        if (position == 0) {
-            return new ElectionDatesFragment();
-        } else if (position == 1) {
-            return new ElectionTwoDatesFragment();
-        } else {
-            return new ElectionThreeDatesFragment();
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Check if the existing view is being reused, otherwise inflate the view
+        View listItemView = convertView;
+        if(listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.election_item, parent, false);
         }
-    }
 
-    /**
-     * Return the total number of pages.
-     */
-    @Override
-    public int getCount() {
-        return 3;
-    }
+        // Get the {@link Election} object located at this position in the list
+        Election currentElection = getItem(position);
 
-    /*@Override
-    public CharSequence getPageTitle(int position) {
-        if (position == 0) {
-            return "Election 1";
-        } else if (position == 1) {
-            return "Election 2";
-        } else {
-            return "Election 3";
-        }
-    }*/
+        // Find the TextView in the election_item.xml layout with the ID election_title
+        TextView nameTextView = (TextView) listItemView.findViewById(R.id.election_name);
+        // Get the title from the current Election object and set this text on the name TextView
+        nameTextView.setText(currentElection.getElectionName());
+
+        // Find the TextView in the election_item.xml layout with the ID election_date
+        TextView dateTextView = (TextView) listItemView.findViewById(R.id.election_date);
+        // Get the description from the current Election object and set this text on the description TextView
+        dateTextView.setText(currentElection.getElectionDate());
+
+        // Find the TextView in the election_item.xml layout with the ID election_registration_date
+        TextView registrationDateTextView = (TextView) listItemView.findViewById(R.id.election_registration_date);
+        // Get the description from the current Election object and set this text on the description TextView
+        registrationDateTextView.setText(currentElection.getElectionRegistrationDate());
+
+        // Find the TextView in the election_item.xml layout with the ID election_date
+        TextView checkRegistrationTextView = (TextView) listItemView.findViewById(R.id.election_check_registration);
+        checkRegistrationTextView.setMovementMethod(LinkMovementMethod.getInstance());
+
+        // Return the whole list item layout (containing 3 TextViews) so that it can be shown in the ListView
+        return listItemView;
+    }
 }

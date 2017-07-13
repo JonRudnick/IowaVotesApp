@@ -4,69 +4,66 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     android:orientation="vertical"
-    tools:context="org.rudnick.iowavotes.MainActivity"
-    android:weightSum="2">
+    tools:context="org.rudnick.iowavotes.MainActivity">
 
-    <!--<ImageView
-        android:id="@+id/results"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:src="@drawable/results_three" />-->
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@android:color/white">
-    <ImageButton
-        android:id="@+id/left_nav"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/arrow_left"
-        android:background="@null" />
-    <ImageButton
-        android:id="@+id/right_nav"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/arrow_right"
-        android:background="@null" />
-    <RelativeLayout
+    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pagercontainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/left_nav"
-        android:layout_toLeftOf="@id/right_nav">
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:id="@+id/upcoming_elections"
+            android:text="@string/upcoming_elections"
+            android:textSize="24sp"
+            android:textColor="@color/colorPrimary"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:layout_weight="0"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ImageButton
+                android:id="@+id/left_nav"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/arrow_left"
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical"
+                android:background="@null"/>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <ImageButton
+                android:id="@+id/right_nav"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/arrow_right"
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical"
+                android:background="@null"/>
+        </LinearLayout>
         <android.support.design.widget.TabLayout
             android:id="@+id/tabDots"
-            android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabBackground="@drawable/tab_selector"
-            app:tabGravity="center"
-            app:tabIndicatorHeight="0dp"
-            android:layout_gravity="bottom|center_horizontal"/>
-    </RelativeLayout>
+            app:tabGravity="center"/>
+    </LinearLayout>
 
-
-    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:gravity="center|bottom"
         android:orientation="vertical"
         android:weightSum="2">

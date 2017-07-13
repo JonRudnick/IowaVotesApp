@@ -75,7 +75,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.rudnick.iowavotes.SettingsActivity" />
         </activity>
-        <activity android:name=".ElectionDatesActivity"></activity>
     </application>
 
 </manifest>

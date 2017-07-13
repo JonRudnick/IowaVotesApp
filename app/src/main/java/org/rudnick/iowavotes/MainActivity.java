@@ -5,11 +5,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,24 +62,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //View Election Results Button
-        /*ImageView viewResultsImage = (ImageView) findViewById(R.id.results);
-        viewResultsImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent viewElectionsIntent = new Intent(MainActivity.this, ElectionDatesActivity.class);
-                startActivity(viewElectionsIntent);
-                Toast.makeText(view.getContext(), "Loading...", Toast.LENGTH_SHORT).show();
-                Intent viewResultsIntent = new Intent(MainActivity.this, ViewResultsActivity.class);
-                startActivity(viewResultsIntent);
-            }
-        });*/
-
         // Find the view pager that will allow the user to swipe between fragments
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
-        ElectionAdapter adapter = new ElectionAdapter(this, getSupportFragmentManager());
+        ElectionPagerAdapter adapter = new ElectionPagerAdapter(this, getSupportFragmentManager());
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);

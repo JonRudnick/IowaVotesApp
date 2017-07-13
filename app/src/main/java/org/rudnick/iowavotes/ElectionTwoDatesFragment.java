@@ -24,17 +24,15 @@ public class ElectionTwoDatesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_view_info, container, false);
-        // List of Step objects to be displayed in the ListView
+        View rootView = inflater.inflate(R.layout.fragment_election_dates, container, false);
+        // List of Election objects to be displayed in the ListView
 
-        ArrayList<Step> electionArray = new ArrayList<Step>();
-        electionArray.add(new Step("City Election", "Date of Schoolboard election"));
-        electionArray.add(new Step("Registration Date", ""));
-        electionArray.add(new Step("Candidate List", ""));
+        ArrayList<Election> electionArray = new ArrayList<Election>();
+        electionArray.add(new Election("2017 City Elections", "Primary: August 14 - August 31 \nElection: August 28 - September 21", "Pre-register by mail or online by September 29 to vote in the primary \nRegister in-person by October 27 to vote in the primary"));
 
 
-        StepAdapter adapter = new StepAdapter(getActivity(), electionArray);
-        ListView listView = (ListView) rootView.findViewById(R.id.list);
+        ElectionAdapter adapter = new ElectionAdapter(getActivity(), electionArray);
+        ListView listView = (ListView) rootView.findViewById(R.id.elections);
         listView.setAdapter(adapter);
         return rootView;
     }
