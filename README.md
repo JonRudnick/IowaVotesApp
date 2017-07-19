@@ -4,15 +4,13 @@ This app allows Iowa voters to view election and voter information.
 
 ## Summary
 
-App has five buttons on its home screen:
- * General Election Results
+The primary purpose of the app is to inform users of upcoming elections and how to participate in them. To accomplish this, the app contains a carousel of upcoming elections, including registration and voting dates and a link to check the user's voter registration.
+
+App also has four buttons on its home screen:
  * How to Register
  * How to Vote
  * Find Your Legislator
  * Find Your Polling Place
- 
- #### General Election Results
- Opens the most recent election results in a webview within the app
  
  #### How to Register
  Details steps, reuirements, and deadlines for how to register to vote. Includes instructions for registering online, by mail, and in person.
