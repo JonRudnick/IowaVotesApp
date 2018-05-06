@@ -2,16 +2,16 @@
     {
         "electionName": "2017 Schoolboard Elections",
         "electionDate": "September 12",
-        "mElectionRegistrationDate": "Pre-register by mail or online by September 1 \nRegister in-person by September 12",
+        "mElectionRegistrationDate": "Pre-register by mail or online by September 1 \nRegister in-person by September 12"
     },
     {
         "electionName": "2017 City Elections",
         "electionDate": "Primary: August 14 - August 31 \nElection: August 28 - September 21",
-        "mElectionRegistrationDate": "Pre-register by mail or online by September 29 to vote in the primary \nRegister in-person by October 27 to vote in the primary",
+        "mElectionRegistrationDate": "Pre-register by mail or online by September 29 to vote in the primary \nRegister in-person by October 27 to vote in the primary"
     },
     {
         "electionName": "2018 State & Federal Elections",
         "electionDate": "Primary: February 26 - March 16 \nElection: July 30 - August 17",
-        "mElectionRegistrationDate": "Pre-register by mail or online by May 25 to vote in the primary \nRegister in-person by October 27 to vote in the primary",
+        "mElectionRegistrationDate": "Pre-register by mail or online by May 25 to vote in the primary \nRegister in-person by October 27 to vote in the primary"
     }
 ]

@@ -10,7 +10,7 @@
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/pagercontainer"
+        android:id="@+id/pagerContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -31,6 +31,7 @@
             android:orientation="horizontal"
             android:layout_weight="1">
             <ImageButton
+                android:contentDescription="@string/leftArrowDescription"
                 android:id="@+id/left_nav"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -44,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
             <ImageButton
+                android:contentDescription="@string/arrowRightDescription"
                 android:id="@+id/right_nav"
                 android:layout_width="48dp"
                 android:layout_height="48dp"

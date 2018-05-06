@@ -4,10 +4,10 @@ package org.rudnick.iowavotes;
  * Created by Jon on 1/3/2017.
  */
 
-public class Step {
+class Step {
 
-    private String mStepTitle;
-    private String mStepDescription;
+    final private String mStepTitle;
+    final private String mStepDescription;
     private String mStepLink;
 
     public Step(String stepTitle, String stepDescription, String stepLink) {

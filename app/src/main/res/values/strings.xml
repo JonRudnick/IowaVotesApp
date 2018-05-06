@@ -20,4 +20,6 @@
 
     <string name="upcoming_elections">Upcoming Elections</string>
     <string name="check_registration"><a href="https://sos.iowa.gov/elections/voterreg/regtovote/search.aspx">Check your registration</a></string>
+    <string name="leftArrowDescription">Arrow Left</string>
+    <string name="arrowRightDescription">Arrow Right</string>
 </resources>

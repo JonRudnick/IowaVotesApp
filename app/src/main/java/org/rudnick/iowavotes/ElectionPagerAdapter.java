@@ -1,6 +1,5 @@
 package org.rudnick.iowavotes;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,21 +9,17 @@ import android.support.v4.app.FragmentPagerAdapter;
  * {@link ElectionPagerAdapter} is a {@link FragmentPagerAdapter} that can provide the layout for
  * each list item based on a data source which is a list of {@link Step} objects.
  */
-public class ElectionPagerAdapter extends FragmentPagerAdapter {
-
-    /** Context of the app */
-    private Context mContext;
+class ElectionPagerAdapter extends FragmentPagerAdapter {
 
     /**
      * Create a new {@link ElectionPagerAdapter} object.
      *
-     * @param context is the context of the app
      * @param fm is the fragment manager that will keep each fragment's state in the adapter
      *           across swipes.
      */
-    public ElectionPagerAdapter(Context context, FragmentManager fm) {
+    ElectionPagerAdapter(FragmentManager fm) {
         super(fm);
-        mContext = context;
+        /* Context of the app */
     }
 
     /**
@@ -32,12 +27,13 @@ public class ElectionPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        if (position == 0) {
-            return new ElectionOneDatesFragment();
-        } else if (position == 1) {
-            return new ElectionTwoDatesFragment();
-        } else {
-            return new ElectionThreeDatesFragment();
+        switch (position) {
+            case 0:
+                return new ElectionOneDatesFragment();
+            case 1:
+                return new ElectionTwoDatesFragment();
+            default:
+                return new ElectionThreeDatesFragment();
         }
     }
 

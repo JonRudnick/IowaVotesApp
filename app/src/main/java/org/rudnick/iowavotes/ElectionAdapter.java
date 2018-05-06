@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by Jon on 1/20/2017.
  */
 
-public class ElectionAdapter extends ArrayAdapter<Election> {
+class ElectionAdapter extends ArrayAdapter<Election> {
 
     public ElectionAdapter(Activity context, ArrayList<Election> elections) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
@@ -37,22 +37,22 @@ public class ElectionAdapter extends ArrayAdapter<Election> {
         Election currentElection = getItem(position);
 
         // Find the TextView in the election_item.xml layout with the ID election_title
-        TextView nameTextView = (TextView) listItemView.findViewById(R.id.election_name);
+        TextView nameTextView = listItemView.findViewById(R.id.election_name);
         // Get the title from the current Election object and set this text on the name TextView
         nameTextView.setText(currentElection.getElectionName());
 
         // Find the TextView in the election_item.xml layout with the ID election_date
-        TextView dateTextView = (TextView) listItemView.findViewById(R.id.election_date);
+        TextView dateTextView = listItemView.findViewById(R.id.election_date);
         // Get the description from the current Election object and set this text on the description TextView
         dateTextView.setText(currentElection.getElectionDate());
 
         // Find the TextView in the election_item.xml layout with the ID election_registration_date
-        TextView registrationDateTextView = (TextView) listItemView.findViewById(R.id.election_registration_date);
+        TextView registrationDateTextView = listItemView.findViewById(R.id.election_registration_date);
         // Get the description from the current Election object and set this text on the description TextView
         registrationDateTextView.setText(currentElection.getElectionRegistrationDate());
 
         // Find the TextView in the election_item.xml layout with the ID election_date
-        TextView checkRegistrationTextView = (TextView) listItemView.findViewById(R.id.election_check_registration);
+        TextView checkRegistrationTextView = listItemView.findViewById(R.id.election_check_registration);
         checkRegistrationTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Return the whole list item layout (containing 3 TextViews) so that it can be shown in the ListView

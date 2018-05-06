@@ -10,10 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  * {@link VotingAdapter} is a {@link FragmentPagerAdapter} that can provide the layout for
  * each list item based on a data source which is a list of {@link Step} objects.
  */
-public class VotingAdapter extends FragmentPagerAdapter {
-
-    /** Context of the app */
-    private Context mContext;
+class VotingAdapter extends FragmentPagerAdapter {
 
     /**
      * Create a new {@link VotingAdapter} object.
@@ -24,7 +21,6 @@ public class VotingAdapter extends FragmentPagerAdapter {
      */
     public VotingAdapter(Context context, FragmentManager fm) {
         super(fm);
-        mContext = context;
     }
 
     /**

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.rudnick.iowavotes">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    <permission
+        android:name="org.rudnick.iowavotes.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="org.rudnick.iowavotes.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +12,8 @@
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

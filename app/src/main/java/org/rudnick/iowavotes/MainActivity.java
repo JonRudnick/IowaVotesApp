@@ -1,17 +1,15 @@
 package org.rudnick.iowavotes;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //View Registration Information Button
-        Button viewRegistrationButton = (Button) findViewById(R.id.register);
+        Button viewRegistrationButton = findViewById(R.id.register);
         viewRegistrationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //View Voting Information Button
-        Button viewVotingButton = (Button) findViewById(R.id.vote);
+        Button viewVotingButton = findViewById(R.id.vote);
         viewVotingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Find Legislators Button
-        Button findLegislatorsButton = (Button) findViewById(R.id.officials);
+        Button findLegislatorsButton = findViewById(R.id.officials);
         findLegislatorsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Find Polling Location Button
-        Button findPollingButton = (Button) findViewById(R.id.polling);
+        Button findPollingButton = findViewById(R.id.polling);
         findPollingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,21 +61,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Find the view pager that will allow the user to swipe between fragments
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        final ViewPager viewPager = findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
-        ElectionPagerAdapter adapter = new ElectionPagerAdapter(this, getSupportFragmentManager());
+        ElectionPagerAdapter adapter = new ElectionPagerAdapter(getSupportFragmentManager());
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
 
         // Add Tab Selector Dots
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabDots);
+        TabLayout tabLayout = findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(viewPager, true);
 
         //Left & Right Navigation
-        ImageView leftNav = (ImageView) findViewById(R.id.left_nav);
-        ImageView rightNav = (ImageView) findViewById(R.id.right_nav);
+        ImageView leftNav = findViewById(R.id.left_nav);
+        ImageView rightNav = findViewById(R.id.right_nav);
         leftNav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

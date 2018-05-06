@@ -1,23 +1,19 @@
 package org.rudnick.iowavotes;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import static android.R.attr.version;
 
 /**
  * Created by Jon on 1/20/2017.
  */
 
-public class StepAdapter extends ArrayAdapter<Step> {
+class StepAdapter extends ArrayAdapter<Step> {
 
     public StepAdapter(Activity context, ArrayList<Step> steps) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
@@ -40,19 +36,19 @@ public class StepAdapter extends ArrayAdapter<Step> {
         Step currentStep = getItem(position);
 
         // Find the TextView in the step_item.xml layout with the ID step_title
-        TextView titleTextView = (TextView) listItemView.findViewById(R.id.step_title);
+        TextView titleTextView = listItemView.findViewById(R.id.step_title);
         // Get the title from the current Step object and set this text on the name TextView
         titleTextView.setText(currentStep.getStepTitle());
 
         // Find the TextView in the step_item.xml layout with the ID step_description
-        TextView descriptionTextView = (TextView) listItemView.findViewById(R.id.step_description);
+        TextView descriptionTextView = listItemView.findViewById(R.id.step_description);
         // Get the description from the current Step object and set this text on the description TextView
         descriptionTextView.setText(currentStep.getStepDescription());
 
         // Find the TextView in the step_item.xml layout with the ID step_link
-        TextView linkTextView = (TextView) listItemView.findViewById(R.id.step_link);
+        TextView linkTextView = listItemView.findViewById(R.id.step_link);
         // If there is a link, get it from the current Step object and set this text on the link TextView
-        if (currentStep.getStepLink() == null || currentStep.getStepLink() == "") {
+        if (currentStep.getStepLink() == null || currentStep.getStepLink().equals("")) {
             linkTextView.setVisibility(View.GONE);
         }
         else {
