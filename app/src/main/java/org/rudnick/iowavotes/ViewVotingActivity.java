@@ -18,7 +18,7 @@ public class ViewVotingActivity extends AppCompatActivity {
         ViewPager viewPager = findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
-        VotingAdapter adapter = new VotingAdapter(this, getSupportFragmentManager());
+        VotingAdapter adapter = new VotingAdapter(getSupportFragmentManager());
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
